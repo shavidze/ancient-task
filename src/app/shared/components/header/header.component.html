@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md d-flex justify-content-between navbar-dark fixed-top bg-dark">
+  <ng-container *ngIf="userIsLoading && !currentUser">
+    <a class="h-[56px] navbar-brand text-center w-100" href="#">... Loading</a>
+  </ng-container>
+  <a
+    *ngIf="!currentUser && !userIsLoading; else loggedIn"
+    class="navbar-brand text-center w-100"
+    href="#"
+    >Welcome to Test Task</a
+  >
+  <ng-template #loggedIn>
+    <ul
+      *ngIf="!userIsLoading"
+      class="list-group d-flex flex-row mx-2 font-monospace m-0 p-0"
+      href="#"
+    >
+      <li class="list-group-item mx-2">
+        User:<span class="text-secondary text-bg-warning">{{ currentUser.name }}</span>
+      </li>
+      <li class="list-group-item">
+        Wallet Balance:<span class="text-secondary text-bg-warning">{{
+          currentUser.wallets | walletSum
+        }}</span>
+      </li>
+    </ul>
+    <button *ngIf="!userIsLoading" class="btn btn-secondary mx-4" (click)="logout()">Logout</button>
+  </ng-template>
+</nav>

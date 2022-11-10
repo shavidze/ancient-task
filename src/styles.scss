@@ -1,0 +1,33 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/*grey*/
+$color-grey-medium: #858f95;
+$color-grey: #f5f5f5;
+$color-dim-grey: #8e8f94;
+
+/*white*/
+$color-white: #ffffff;
+$color-card-background: #f5f5f5;
+$color-mercury: #e5e5e5;
+$color-alabaster: #f8f8f8;
+$color-pagination-back: #f2f1ef;
+$color-disabled: #c3c3c3;
+$white-smoke: #f3f3f3;
+
+/*black*/
+$color-black: #000000;
+
+/*blue*/
+$color-blue-dark: #212529;
+
+
+/*red*/
+$color-heart-active: #532431;
+$color-red-light: #fb6255;
+$color-red-medium: #ED2939;

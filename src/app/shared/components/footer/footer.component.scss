@@ -1,0 +1,17 @@
+@import "src/styles";
+.footer {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: $color-blue-dark;
+  display: block;
+
+  .container {
+    margin-right: 20px;
+    margin-left: 20px;
+
+    .text-muted {
+      color: $color-grey-medium;
+    }
+  }
+}
