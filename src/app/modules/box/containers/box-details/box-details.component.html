@@ -1,1 +1,20 @@
-<p>box-details works!</p>
+<ng-container *ngIf="{ boxDetails: boxDetails$ | async } as cntx">
+  <button routerLink=".." class="btn btn-success">Go Back</button>
+  <div class="w-100 d-flex justify-content-center">
+    <div class="card">
+      <img
+        class="card-img-top"
+        [src]="cntx.boxDetails?.iconUrl"
+        onerror="this.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Box Name: {{ cntx.boxDetails?.name }}</h5>
+        <h5 class="card-text">Box Cost: {{ cntx.boxDetails?.price | currency }}</h5>
+        <button class="btn btn-outline-secondary" (click)="openBox(cntx.boxDetails.id)">
+          Open Box
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

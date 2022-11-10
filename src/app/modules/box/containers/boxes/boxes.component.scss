@@ -1,0 +1,16 @@
+@import "src/styles";
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 10px;
+  @include media-breakpoint-up(sm){
+    grid-template-columns: auto auto;
+  }
+
+  @include  media-breakpoint-up(md){
+    grid-template-columns: auto auto auto auto;
+  }
+
+}

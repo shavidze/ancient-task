@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 export class BoxService {
   constructor(private apollo: Apollo) {}
   public openBox(boxId: string, amount: number = 1) {
-    return this.apollo.watchQuery({ query: openBox(boxId, amount) });
+    return this.apollo.watchQuery({ query: openBox(boxId, amount) }).valueChanges;
   }
   public getBoxes() {
     return this.apollo.watchQuery({ query: getBoxes() }).valueChanges.pipe(map((x: any) => x.data));

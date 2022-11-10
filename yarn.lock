@@ -1450,6 +1450,13 @@
   "resolved" "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   "version" "2.0.4"
 
+"@ngneat/until-destroy@^9.2.2":
+  "integrity" "sha512-pD5idTgUdF0XZMuaV1n0BZTnE2BvxymutoXhwfZbO3uxjh63wS6Pzzzwv+pkXalKhuSwdf6uA1gRx7DOvlj/Kw=="
+  "resolved" "https://registry.npmjs.org/@ngneat/until-destroy/-/until-destroy-9.2.2.tgz"
+  "version" "9.2.2"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "@ngtools/webpack@14.2.9":
   "integrity" "sha512-P2zgvsfSpN4BkNzZWnPKUVOzv3y/SUWdnx/nhAG5gsQkLBp0Vf2evwQnbPUKuCrbMpYd1V/5SHb48+0B6FbUtQ=="
   "resolved" "https://registry.npmjs.org/@ngtools/webpack/-/webpack-14.2.9.tgz"
@@ -5973,6 +5980,14 @@
   "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
+
+"sass-loader@^13.2.0":
+  "integrity" "sha512-JWEp48djQA4nbZxmgC02/Wh0eroSUutulROUusYJO9P9zltRbNN80JCBHqRGzjd4cmZCa/r88xgfkjGD0TXsHg=="
+  "resolved" "https://registry.npmjs.org/sass-loader/-/sass-loader-13.2.0.tgz"
+  "version" "13.2.0"
+  dependencies:
+    "klona" "^2.0.4"
+    "neo-async" "^2.6.2"
 
 "sass-loader@13.0.2":
   "integrity" "sha512-BbiqbVmbfJaWVeOOAu2o7DhYWtcNmTfvroVgFXa6k2hHheMxNAeDHLNoDy/Q5aoaVlz0LH+MbMktKwm9vN/j8Q=="
