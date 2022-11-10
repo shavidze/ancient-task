@@ -1,4 +1,4 @@
-<div *ngIf="boxList$ | async as boxList" class="d-flex">
+<div *ngIf="boxList$ | async as boxList" class="d-flex flex-wrap">
   <ng-container *ngFor="let boxItem of boxList.boxes.edges">
     <div class="card-group">
       <app-box-item [box]="boxItem.node"></app-box-item>
