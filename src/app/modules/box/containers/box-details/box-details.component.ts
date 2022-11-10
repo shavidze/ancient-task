@@ -23,7 +23,5 @@ export class BoxDetailsComponent implements OnInit {
     );
   }
 
-  openBox(id: string): void {
-    this.boxService.openBox(id, 1).va;
-  }
+  openBox(id: string | undefined): void {}
 }

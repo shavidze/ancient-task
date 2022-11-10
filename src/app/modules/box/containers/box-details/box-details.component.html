@@ -11,7 +11,7 @@
       <div class="card-body">
         <h5 class="card-title">Box Name: {{ cntx.boxDetails?.name }}</h5>
         <h5 class="card-text">Box Cost: {{ cntx.boxDetails?.price | currency }}</h5>
-        <button class="btn btn-outline-secondary" (click)="openBox(cntx.boxDetails.id)">
+        <button class="btn btn-outline-secondary" (click)="openBox(cntx.boxDetails?.id)">
           Open Box
         </button>
       </div>

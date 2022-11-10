@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-md d-flex justify-content-between navbar-dark fixed-top bg-dark">
   <ng-container *ngIf="userIsLoading && !currentUser">
-    <a class="h-[56px] navbar-brand text-center w-100" href="#">... Loading</a>
+    <a class="h-[56px] navbar-brand text-center w-100" href="#">
+      <div class="spinner-border" role="status"></div>
+    </a>
   </ng-container>
   <a
     *ngIf="!currentUser && !userIsLoading; else loggedIn"
