@@ -1,1 +1,5 @@
-<p>boxes works!</p>
+<div *ngIf="boxList$ | async as boxList" class="flex flex-row">
+  <ng-container *ngFor="let boxItem of boxList.boxes.edges">
+    <app-box-item [box]="boxItem.node"></app-box-item>
+  </ng-container>
+</div>
