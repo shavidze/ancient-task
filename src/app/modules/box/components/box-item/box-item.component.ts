@@ -7,7 +7,7 @@ import { IBox } from '@shared/interfaces/box';
   styleUrls: ['./box-item.component.scss'],
 })
 export class BoxItemComponent implements OnInit {
-  @Input() box: any;
+  @Input() box: IBox | null = null;
   constructor() {}
 
   ngOnInit(): void {

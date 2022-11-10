@@ -1,5 +1,7 @@
-<div *ngIf="boxList$ | async as boxList" class="flex flex-row">
+<div *ngIf="boxList$ | async as boxList" class="d-flex">
   <ng-container *ngFor="let boxItem of boxList.boxes.edges">
-    <app-box-item [box]="boxItem.node"></app-box-item>
+    <div class="card-group">
+      <app-box-item [box]="boxItem.node"></app-box-item>
+    </div>
   </ng-container>
 </div>
