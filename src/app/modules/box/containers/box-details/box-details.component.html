@@ -1,4 +1,10 @@
-<ng-container *ngIf="{ boxDetails: boxDetails$ | async } as cntx">
+<ng-container
+  *ngIf="{
+    boxDetails: boxDetails$ | async,
+    loading: loading$ | async,
+    boxPrize: boxPrize$ | async
+  } as cntx"
+>
   <button routerLink=".." class="btn btn-success">Go Back</button>
   <div class="w-100 d-flex justify-content-center">
     <div class="card">
@@ -11,9 +17,34 @@
       <div class="card-body">
         <h5 class="card-title">Box Name: {{ cntx.boxDetails?.name }}</h5>
         <h5 class="card-text">Box Cost: {{ cntx.boxDetails?.price | currency }}</h5>
-        <button class="btn btn-outline-secondary" (click)="openBox(cntx.boxDetails?.id)">
-          Open Box
+        <ng-container *ngIf="cntx.loading"
+          ><span class="text-warning">...Loading</span></ng-container
+        >
+        <button
+          class="btn btn-outline-secondary"
+          *ngIf="!cntx.loading && !cntx.boxPrize"
+          (click)="openBox(cntx.boxDetails?.id)"
+        >
+          {{ 'Open Box' }}
         </button>
+        <ng-container *ngIf="!cntx.loading && cntx.boxPrize">
+          <div class="alert alert-primary" role="alert">You won prizes</div>
+          <ng-container *ngFor="let prize of cntx.boxPrize">
+            {{ prize.itemVariant }}
+            <div class="d-flex flex-column">
+              <h2>
+                Name
+                <span class="badge badge-secondary">{{
+                  prize.itemVariant?.name || 'without name'
+                }}</span>
+              </h2>
+              <h2>
+                Price
+                <span class="badge badge-secondary">{{ prize.itemVariant.value || '0' }}</span>
+              </h2>
+            </div>
+          </ng-container>
+        </ng-container>
       </div>
     </div>
   </div>

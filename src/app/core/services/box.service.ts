@@ -9,12 +9,14 @@ import { map } from 'rxjs';
 export class BoxService {
   constructor(private apollo: Apollo) {}
   public openBox(boxId: string, amount: number = 1) {
-    return this.apollo.watchQuery({ query: openBox(boxId, amount) }).valueChanges;
+    return this.apollo.mutate({ mutation: openBox(boxId, amount), variables: { boxId, amount } });
   }
   public getBoxes() {
     return this.apollo.watchQuery({ query: getBoxes() }).valueChanges.pipe(map((x: any) => x.data));
   }
   public getBoxById(id: string) {
-    return this.apollo.watchQuery({ query: getBoxById(id) }).valueChanges;
+    return this.apollo
+      .watchQuery({ query: getBoxById(id) })
+      .valueChanges.pipe(map((x: any) => x.data));
   }
 }

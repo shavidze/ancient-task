@@ -1,5 +1,14 @@
-<div *ngIf="boxList$ | async as boxList" class="cards-wrapper">
-  <ng-container *ngFor="let boxItem of boxList.boxes.edges">
-    <app-box-item [box]="boxItem.node"></app-box-item>
+<ng-container *ngIf="{ isLoading: (isLoading$ | async), boxList: boxList$ | async } as cntx">
+  <ng-container *ngIf="!cntx.isLoading; else loading">
+    <div *ngIf="boxList$ | async as boxList" class="cards-wrapper">
+      <ng-container *ngFor="let boxItem of boxList.boxes.edges">
+        <app-box-item [box]="boxItem.node"></app-box-item>
+      </ng-container>
+    </div>
   </ng-container>
-</div>
+</ng-container>
+<ng-template #loading>
+  <div class="w-100 d-flex justify-content-center align-items-center h-100">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>

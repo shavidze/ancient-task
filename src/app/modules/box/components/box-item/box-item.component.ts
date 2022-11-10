@@ -10,7 +10,5 @@ export class BoxItemComponent implements OnInit {
   @Input() box: IBox | null = null;
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('box', this.box);
-  }
+  ngOnInit(): void {}
 }
