@@ -12,6 +12,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     uri: `wss://api-staging.csgoroll.com/graphql`,
     options: {
       reconnect: true,
+      lazy: true,
     },
   });
   const link = split(
