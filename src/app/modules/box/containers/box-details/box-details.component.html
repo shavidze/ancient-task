@@ -21,9 +21,9 @@
       <div class="card-body">
         <h5 class="card-title">Box Name: {{ cntx.boxDetails?.name }}</h5>
         <h5 class="card-text">Box Cost: {{ cntx.boxDetails?.price | currency }}</h5>
-        <ng-container *ngIf="cntx.loading"
-          ><span class="text-warning">...Loading</span></ng-container
-        >
+        <ng-container *ngIf="cntx.loading">
+          <div class="spinner-border text-primary" role="status"></div>
+        </ng-container>
         <button
           class="btn btn-outline-secondary"
           *ngIf="!cntx.loading && !cntx.boxPrize"
