@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '@core/services/user.service';
 import { IUser } from '@shared/interfaces/user';
 
@@ -7,19 +7,21 @@ import { IUser } from '@shared/interfaces/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'task-ancient';
   public currentUser: IUser | null = null;
   public isLoadingUser: boolean = true;
-  constructor(private userService: UserService) {
-    this.userService.getCurrentUser().subscribe(
-      user => {
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userService.getCurrentUser().subscribe({
+      next: user => {
         this.currentUser = user;
         this.isLoadingUser = false;
       },
-      (err: any) => {
+      error: (err: any) => {
         this.isLoadingUser = false;
-      }
-    );
+      },
+    });
   }
 }

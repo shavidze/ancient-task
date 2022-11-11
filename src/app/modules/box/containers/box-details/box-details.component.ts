@@ -11,12 +11,13 @@ import { error } from '@angular/compiler-cli/src/transformers/util';
   selector: 'app-box-details',
   templateUrl: './box-details.component.html',
   styleUrls: ['./box-details.component.scss', '../../shared.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BoxDetailsComponent implements OnInit {
   public boxDetails$: Observable<IBox> | undefined;
   public loading$ = new BehaviorSubject(false);
   public boxPrize$ = new BehaviorSubject(null);
+  public error$ = new BehaviorSubject(null);
   constructor(private activatedRoute: ActivatedRoute, private boxService: BoxService) {}
 
   ngOnInit(): void {
@@ -24,8 +25,6 @@ export class BoxDetailsComponent implements OnInit {
       untilDestroyed(this),
       map((data: any) => data.boxDetails.box)
     );
-    this.boxDetails$.subscribe(console.log);
-    this.boxPrize$.subscribe(console.log);
   }
 
   openBox(id: string | undefined): void {
@@ -37,6 +36,7 @@ export class BoxDetailsComponent implements OnInit {
       },
       error: err => {
         this.loading$.next(false);
+        this.error$.next(err?.message);
       },
     });
   }

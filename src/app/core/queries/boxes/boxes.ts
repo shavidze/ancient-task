@@ -1,6 +1,6 @@
 import { gql } from 'apollo-angular';
 
-export const openBox = (boxId: string, amount: number) => gql`
+export const openBox = gql`
   mutation openBox($boxId: ID!, $amount: Int) {
     openBox(input: { boxId: $boxId, amount: $amount }) {
       boxOpenings {

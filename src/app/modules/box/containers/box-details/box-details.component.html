@@ -2,10 +2,14 @@
   *ngIf="{
     boxDetails: boxDetails$ | async,
     loading: loading$ | async,
-    boxPrize: boxPrize$ | async
+    boxPrize: boxPrize$ | async,
+    error: error$ | async
   } as cntx"
 >
   <button routerLink=".." class="btn btn-success">Go Back</button>
+  <ng-container *ngIf="cntx.error">
+    <div class="mt-2 alert alert-danger" role="alert">{{ cntx.error }}</div>
+  </ng-container>
   <div class="w-100 d-flex justify-content-center">
     <div class="card">
       <img
@@ -30,18 +34,10 @@
         <ng-container *ngIf="!cntx.loading && cntx.boxPrize">
           <div class="alert alert-primary" role="alert">You won prizes</div>
           <ng-container *ngFor="let prize of cntx.boxPrize">
-            {{ prize.itemVariant }}
             <div class="d-flex flex-column">
-              <h2>
-                Name
-                <span class="badge badge-secondary">{{
-                  prize.itemVariant?.name || 'without name'
-                }}</span>
-              </h2>
-              <h2>
-                Price
-                <span class="badge badge-secondary">{{ prize.itemVariant.value || '0' }}</span>
-              </h2>
+              <p class="badge badge-secondary text-warning">Name:{{ prize.itemVariant?.name }}</p>
+
+              <p class="badge badge-secondary text-warning">Price:{{ prize.itemVariant?.value }}</p>
             </div>
           </ng-container>
         </ng-container>

@@ -1,5 +1,11 @@
 export interface Wallet {
   id: string;
   amount: number;
-  currency: string;
+  name: string;
+}
+
+export interface WalletResponse {
+  id: string;
+  amount: string;
+  name: string;
 }
