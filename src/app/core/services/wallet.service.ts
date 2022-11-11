@@ -11,7 +11,6 @@ import { walletUpdate } from '@core/queries/wallet/wallet';
 export class WalletService {
   constructor(private apollo: Apollo) {}
   walletUpdateSubscription(): Observable<FetchResult<WalletResponse>> {
-    debugger;
     return this.apollo.subscribe<WalletResponse>({
       query: walletUpdate,
     });
